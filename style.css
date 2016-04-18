@@ -1,0 +1,385 @@
+/*
+Theme Name: DonkyCz Theme
+Theme URI: https://github.com/ondrejd/odwp-donkycz-theme
+Author: Ondřej Doněk
+Author URI: http://ondrejd.info/
+Description: Theme for Donky.cz site.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: white, blue, responsive-layout, editor-style, microformats, post-formats, translation-ready
+Text Domain: odwp-donkycz-theme
+*/
+
+/*
+ * Default target screen resolution is 1366x768.
+ */
+
+html, body {
+	background-color: #fff;
+	background-image: url("images/bckg-wood.png");
+	background-repeat: repeat;
+	font-family: Helvetica, sans;
+	font-size: 13pt;
+	line-height: 1.1;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+a, a:visited { color: #111; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul { list-style: square outside none; }
+
+.clearfix { clear: both; }
+.errorMessage { color: #f30; font-weight: bold; }
+
+
+
+/* ---------------------------------------------------------------------------
+ * HEADER
+ * ---------------------------------------------------------------------------
+ */
+.site-header {
+	height: 200px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	position: fixed;
+	top: -60px;
+	width: 100%;
+	z-index: 1000;
+}
+.site-header .header-main h1 {
+	background-repeat: repeat-x;
+	background-image: url("images/header-bckg.png");
+	height: 200px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+}
+.site-header .header-main h1 a {}
+.site-header .header-main h1 a img {}
+
+
+
+/* ---------------------------------------------------------------------------
+ * FOOTER
+ * ---------------------------------------------------------------------------
+ */
+.site-footer {
+	background-repeat: repeat-x;
+	background-image: url("images/footer-bckg.png");
+	bottom: -510px;/* -410=text menu;-310px=menu with buttons;0px=whole footer */
+	height: 563px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	z-index: 100;
+}
+.site-footer .footer-menu-cont {
+	width: 100%;
+}
+.site-footer .footer-menu {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0px 0px 0px 0px;
+	padding: 15px 0px 15px 0px;
+	text-align: center;
+	width: 100%;
+}
+.site-footer .footer-menu li {
+	display: inline-block;
+	height: 125px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+	vertical-align: middle;
+	width: 170px
+}
+.site-footer .footer-menu li a {
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	display: inline-block;
+	height: 125px;
+	width: 170px;
+}
+/* O nas */
+.site-footer .footer-menu li a.o_nas { background-image: url("images/icon-o_nas.png"); }
+.site-footer .footer-menu li a.o_nas:hover { background-image: url("images/icon-o_nas-hover.png"); }
+.site-footer .footer-menu li a.active.o_nas { background-image: url("images/icon-o_nas-hover.png"); }
+.site-footer .footer-menu li a.active.o_nas:hover { background-image: url("images/icon-o_nas.png"); }
+/* Jak koupit? */
+.site-footer .footer-menu li a.jak_koupit { background-image: url("images/icon-jak_koupit.png"); }
+.site-footer .footer-menu li a.jak_koupit:hover { background-image: url("images/icon-jak_koupit-hover.png"); }
+.site-footer .footer-menu li a.active.jak_koupit { background-image: url("images/icon-jak_koupit-hover.png"); }
+.site-footer .footer-menu li a.active.jak_koupit:hover { background-image: url("images/icon-jak_koupit.png"); }
+/* Za kolik? */
+.site-footer .footer-menu li a.za_kolik { background-image: url("images/icon-za_kolik.png"); }
+.site-footer .footer-menu li a.za_kolik:hover { background-image: url("images/icon-za_kolik-hover.png"); }
+.site-footer .footer-menu li a.active.za_kolik { background-image: url("images/icon-za_kolik-hover.png"); }
+.site-footer .footer-menu li a.active.za_kolik:hover { background-image: url("images/icon-za_kolik.png"); }
+/* Skladem */
+.site-footer .footer-menu li a.skladem { background-image: url("images/icon-skladem.png"); }
+.site-footer .footer-menu li a.skladem:hover { background-image: url("images/icon-skladem-hover.png"); }
+.site-footer .footer-menu li a.active.skladem { background-image: url("images/icon-skladem-hover.png"); }
+.site-footer .footer-menu li a.active.skladem:hover { background-image: url("images/icon-skladem.png"); }
+/* Kontakt */
+.site-footer .footer-menu li a.kontakt { background-image: url("images/icon-kontakt.png"); }
+.site-footer .footer-menu li a.kontakt:hover { background-image: url("images/icon-kontakt-hover.png"); }
+.site-footer .footer-menu li a.active.kontakt { background-image: url("images/icon-kontakt-hover.png"); }
+.site-footer .footer-menu li a.active.kontakt:hover { background-image: url("images/icon-kontakt.png"); }
+/* Container for the footer pages */
+.site-footer .footer-page-cont {
+	height: 0px;/* height from 0px to 300px */
+	padding: 0px 20% 0px 20%;
+	overflow: hidden;
+	width: 60%;
+}
+.site-footer .footer-page-cont .inner-page-cont {
+	padding-top: 40px;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * PRICE LABELS
+ * ---------------------------------------------------------------------------
+ */
+.price-labels { z-index: 650; }
+.price-labels .price-label {
+	background-image: url("images/visacka.png");
+	background-repeat: no-repeat;
+	height: 668px;
+	position: fixed;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-kthml-opacity: 0.8;
+	opacity: 0.8;
+	text-align: center;
+	top: -494px;/* second position: -35px */
+	width: 212px;
+}
+.price-labels .left-label { left: 200px; }
+.price-labels .right-label { right: 200px; }
+.price-labels .price-label .label-header {}
+.price-labels .price-label .label-header h2 {
+	margin: 185px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+.price-labels .price-label .label-content {}
+.price-labels .price-label .label-content p {
+	font-size: 12pt;
+}
+.price-labels .price-label .label-content p.details {}
+.price-labels .price-label .label-content p.description {
+	padding: 0px 15px 0px 15px;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+ * TOYS NAVIGATION
+ * ---------------------------------------------------------------------------
+ */
+.toys-navigation {
+	bottom: 80px;
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+}
+.toys-navigation table.nav-links { width: 100%; }
+.toys-navigation table.nav-links td {
+	border: 0px none;
+	height: 141px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.toys-navigation table.nav-links td.left { width: 137px; float: left; }
+.toys-navigation table.nav-links td.middle { width: auto; }
+.toys-navigation table.nav-links td.right { width: 137px; float: right; }
+.toys-navigation .nav-links a,
+.toys-navigation .nav-links a:visited,
+.toys-navigation .nav-links a:hover {
+	color: #111;
+	text-decoration: none;
+}
+.toys-navigation .nav-links .meta-nav {
+	display: block;
+	height: 141px;
+	width: 137px;
+}
+.toys-navigation .nav-links .meta-nav-prev { background-image: url("images/icon-arrow-left.png"); }
+.toys-navigation .nav-links .meta-nav-prev:hover { background-image: url("images/icon-arrow-left-hover.png"); }
+.toys-navigation .nav-links .meta-nav-next { background-image: url("images/icon-arrow-right.png"); }
+.toys-navigation .nav-links .meta-nav-next:hover { background-image: url("images/icon-arrow-right-hover.png"); }
+
+
+
+/* ---------------------------------------------------------------------------
+ * TOYS
+ * ---------------------------------------------------------------------------
+ */
+.toys-panel {
+	bottom: 60px;
+	position: fixed;
+	left: 0px;
+	top: 60px;
+	/* width is `.toys-pair` * count */
+	width: 999999px;
+	z-index: -10;
+}
+.toys-panel .toys-pair {
+	float: left;
+	/* Initial width - is recalculated to screen width by JavaScript. */
+	width: 1360px;
+}
+.toys-panel .toys-pair .panel {
+	float: left;
+	position: relative;
+	text-align: center;
+	top: -530px;/* should be as height of .rack */
+	width: 680px;
+}
+.toys-panel .toys-pair .panel-left {}
+.toys-panel .toys-pair .panel-right {}
+.toys-panel .toys-pair .panel img {
+	height: 510px;
+	position: relative;
+}
+/* Rack underneath the toys */
+.toys-panel .toys-pair .rack {
+	height: 553px;
+	width: 1360px;
+}
+.toys-panel .toys-pair .rack .part {
+	background-repeat: no-repeat;
+	height: 553px;
+	float: left;
+	width: 180px;
+}
+.toys-panel .toys-pair .rack .left {
+	background-image: url("images/rack-left.png");
+	background-position: left bottom;
+}
+.toys-panel .toys-pair .rack .center {
+	background-image: url("images/rack-center.png");
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	/* (width = winWidth - (2*180px)
+	 * Is recalculated to screen width by JavaScript .
+	 */
+	width: 1000px;
+}
+.toys-panel .toys-pair .rack .right {
+	background-image: url("images/rack-right.png");
+	background-position: right bottom;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+ * STATIC CONTENT PAGES
+ * ---------------------------------------------------------------------------
+ */
+.site-main .static-page {
+	margin: 0px auto 0px auto;
+	padding: 200px 0px 0px 0px;
+	text-align: center;
+	width: 600px;
+}
+.site-main .static-page h1 {
+	font-size: 32pt;
+}
+.site-main .static-page h1 code {
+	color: #f30;
+}
+.site-main .static-page p {
+	font-size: 16pt;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+ * PAGE 'Stock'
+ * ---------------------------------------------------------------------------
+ */
+.shopStock {
+	width: 100%;
+}
+.shopStock .shopStockArea {
+	float: left;
+	margin-right: 1%;
+	width: 24%;
+}
+.shopStock .shopStockArea.first {}
+.shopStock .shopStockArea.last {
+	margin-right: 0;
+}
+.shopStock .shopStockArea table {
+	width: 100%;
+}
+.shopStock .shopStockArea table td {
+	text-align: center;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+ * TOYS
+ * ---------------------------------------------------------------------------
+ */
+.babi { bottom: 65px; left: -90px; }
+.cunik { bottom: 5px; right: -250px; }
+.deda { bottom: 58px; right: -40px; }
+.gepard { bottom: 46px; right: -80px; }
+.kocka { bottom: 61px; right: -50px; }
+.kocour { bottom: -15px; left: -55px; }
+.lisak { bottom: -3px; right: -55px; }
+.maly-skritek { bottom: 26px; left: -40px; }
+.mama-skritek { bottom: -29px; left: -80px; }
+.medvidek { bottom: 24px; right: -40px; }
+.mysak { bottom: 46px; right: -60px; }
+.myska { bottom: 101px; left: -50px; }
+.oslik { bottom: 36px; left: -65px; }
+.panenka { bottom: -14px; left: -60px; }
+.skritek { bottom: -8px; right: -80px; }
+
+
+
+/* ---------------------------------------------------------------------------
+ * 1024x768
+ * ---------------------------------------------------------------------------
+ */
+@media all and (width: 1024px) and (height: 768px) {
+	/* Toys and rack height customization */
+	.toys-panel .toys-pair .panel { top: -530px; }
+	.toys-panel .toys-pair .panel-left {}
+	.toys-panel .toys-pair .panel-right {}
+	.toys-panel .toys-pair .panel img { height: 510px; }
+	.toys-panel .toys-pair .rack { height: 553px; }
+	.toys-panel .toys-pair .rack .part { height: 553px; }
+}
+
+/* ---------------------------------------------------------------------------
+* 1024x768
+* ---------------------------------------------------------------------------
+*/
+@media all and (min-height: 768px) {
+	/* Toys and rack height customization */
+	.toys-panel .toys-pair .panel { top: -580px; }
+	.toys-panel .toys-pair .panel-left {}
+	.toys-panel .toys-pair .panel-right {}
+	.toys-panel .toys-pair .panel img { height: 560px; }
+	.toys-panel .toys-pair .rack { height: 603px; }
+	.toys-panel .toys-pair .rack .part { height: 603px; }
+	/* Specific toys */
+	.medvidek { bottom: 0px; right: 40px; }
+	.cunik { left: 0px; }
+}
+
+/* Default styles first then media queries */
+@media screen and (min-width: 400px) {}
+@media screen and (min-width: 600px) {}
+@media screen and (min-width: 1000px) {}
+@media screen and (min-width: 1400px) {}

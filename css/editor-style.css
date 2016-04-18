@@ -1,0 +1,13 @@
+/*
+Theme Name: DonkyCz Theme
+Description: Used to style the TinyMCE editor.
+*/
+
+body {
+	background-color: #fff;
+	background-image: url("../images/bckg-wood.png");
+	background-repeat: repeat;
+	font-family: Helvetica, sans;
+	font-size: 13pt;
+	line-height: 1.1;
+}
