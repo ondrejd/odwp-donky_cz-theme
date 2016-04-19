@@ -103,6 +103,20 @@
 	</div>
 </footer>
 
+<!--
+<nav class="menu main"><?php
+	$walker = new DonkyCz_Nav_Menu_Walker();
+	wp_nav_menu( array(
+		'container' => 'div',
+		'container_class' => 'footer-menu-cont',
+		'theme_location' => 'primary',
+		'menu_class' => 'footer-menu',
+		'depth' => 0,
+		'walker' => $walker
+	) );
+?></nav><!-- .main -- >
+-->
+
 <?php wp_footer(); ?>
 </body>
 </html>

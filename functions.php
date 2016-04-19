@@ -9,11 +9,21 @@
  * @since 1.0
  */
 
+// Include all source files
+include_once get_template_directory() . '/includes/class-donkycz-nav-menu-walker.php';
+
+
 if ( ! function_exists( 'odwpdct_setup' ) ) :
 /**
  * Sets up theme.
  *
  * @since 1.0
+ * @uses add_editor_style()
+ * @uses add_theme_support()
+ * @uses get_template_directory()
+ * @uses load_theme_textdomain()
+ * @uses register_nav_menus()
+ * @uses set_post_thumbnail_size()
  */
 function odwpdct_setup() {
 	load_theme_textdomain( 'odwp-donkycz-theme', get_template_directory() . '/languages' );
@@ -75,6 +85,10 @@ if ( ! function_exists( 'odwpdct_scripts' ) ) :
  * Enqueues scripts and styles.
  *
  * @since 1.0
+ * @uses get_template_directory_uri()
+ * @uses wp_enqueue_script()
+ * @uses wp_localize_script()
+ * @uses wp_script_add_data()
  */
 function odwpdct_scripts() {
 	wp_enqueue_script( 'odwpdct-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.0' );
@@ -82,10 +96,11 @@ function odwpdct_scripts() {
 
 	wp_enqueue_script( 'odwpdct-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20160418', true );
 
-	wp_localize_script( 'odwpdct-script', 'screenReaderText', array(
+	// TODO Add correct script localization!
+	/*wp_localize_script( 'odwpdct-script', 'screenReaderText', array(
 		'expand'   => __( 'expand child menu', 'odwp-donkycz-theme' ),
-		'collapse' => __( 'collapse child menu', 'odwp-donkycz-theme' ),
-	) );
+		'collapse' => __( 'collapse child menu', 'odwp-donkycz-theme' )
+	) );*/
 }
 endif; // odwpdct_scripts
 add_action( 'wp_enqueue_scripts', 'odwpdct_scripts' );
