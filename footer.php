@@ -19,7 +19,7 @@
 			<p><b><code>XXX</code> Contact form!</b></p>
 			<div class="progress-area" style="display: none;">
 				<p>
-					<image src="<?php bloginfo( 'template_directory' ); ?>/images/progress-blue-circle.gif"/><br/><br/>
+					<img src="<?php bloginfo( 'template_directory' ); ?>/images/progress-blue-circle.gif"/><br/><br/>
 					<?php _e( 'Chvíli strpení, formulář se odesílá&hellip;'); ?>
 				</p>
 				<p id="request-result"></p>
@@ -71,51 +71,20 @@
 			<p><?php _e( 'Tento web funguje jako ukázka našich realizovaných prací a zároveň si zde můžete hračku objednat.<br/>Pokud byste měli zájem o některou z uvedených postaviček, nebo pokud byste chtěli hračku na míru,<br/>s radostí ji pro Vás navrhneme a vytvoříme.<br/>Dejte nám vědět.', 'odwp-donkycz-theme' ); ?></p>
 		</div>
 	</div>
-	<div class="footer-menu-cont">
-		<ul class="footer-menu" role="navigation">
-			<li>
-				<a class="o_nas" data-pageId="o_nas" href="#">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/images/text-o_nas.png" alt="<?php _e( 'O nás', 'odwp-donkycz-theme' ); ?>"/>
-				</a>
-			</li>
-			<li>
-				<a class="jak_koupit" data-pageId="jak_koupit" href="#">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/images/text-jak_koupit.png" alt="<?php _e( 'Jak koupit?', 'odwp-donkycz-theme' ); ?>"/>
-				</a>
-			</li>
-			<li>
-				<a class="za_kolik" data-pageId="za_kolik" href="#">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/images/text-za_kolik.png" alt="<?php _e( 'Za kolik?', 'odwp-donkycz-theme' ); ?>"/>
-				</a>
-			</li>
-			<!-- <li>
-				<a class="skladem" data-pageId="skladem" href="#">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/images/text-skladem.png" alt="<?php _e( 'Skladem', 'odwp-donkycz-theme' ); ?>"/>
-				</a>
-			</li> -->
-			<li>
-				<a class="kontakt" data-pageId="kontakt" href="#">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/images/text-kontakt.png" alt="<?php _e( 'Kontakt', 'odwp-donkycz-theme' ); ?>"/>
-				</a>
-			</li>
-		</ul>
-		<div class="clearfix"></div>
-	</div>
+	<nav class="menu main"><?php
+		$walker = new DonkyCz_Nav_Menu_Walker();
+		wp_nav_menu( array(
+			'container' => 'div',
+			'container_class' => 'footer-menu-cont',
+			'theme_location' => 'primary',
+			'menu_class' => 'footer-menu',
+			'depth' => 0,
+			'walker' => $walker
+		) );
+	?></nav><!-- .main -->
 </footer>
 
-<!--
-<nav class="menu main"><?php
-	$walker = new DonkyCz_Nav_Menu_Walker();
-	wp_nav_menu( array(
-		'container' => 'div',
-		'container_class' => 'footer-menu-cont',
-		'theme_location' => 'primary',
-		'menu_class' => 'footer-menu',
-		'depth' => 0,
-		'walker' => $walker
-	) );
-?></nav><!-- .main -- >
--->
+
 
 <?php wp_footer(); ?>
 </body>
