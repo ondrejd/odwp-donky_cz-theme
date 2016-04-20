@@ -13,7 +13,9 @@
 include_once get_template_directory() . '/includes/class-donkycz-nav-menu-walker.php';
 
 
+
 if ( ! function_exists( 'odwpdct_setup' ) ) :
+
 /**
  * Sets up theme.
  *
@@ -61,11 +63,14 @@ function odwpdct_setup() {
 
 	add_editor_style( array( 'css/editor-style.css' ) );
 }
+
 endif; // odwpdct_setup
 add_action( 'after_setup_theme', 'odwpdct_setup' );
 
 
+
 if ( ! function_exists( 'odwpdct_javascript_detection' ) ) :
+
 /**
  * Handles JavaScript detection.
  *
@@ -76,11 +81,14 @@ if ( ! function_exists( 'odwpdct_javascript_detection' ) ) :
 function odwpdct_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
+
 endif; // odwpdct_javascript_detection
 add_action( 'wp_head', 'odwpdct_javascript_detection', 0 );
 
 
+
 if ( ! function_exists( 'odwpdct_scripts' ) ) :
+
 /**
  * Enqueues scripts and styles.
  *
@@ -102,5 +110,6 @@ function odwpdct_scripts() {
 		'collapse' => __( 'collapse child menu', 'odwp-donkycz-theme' )
 	) );*/
 }
+
 endif; // odwpdct_scripts
 add_action( 'wp_enqueue_scripts', 'odwpdct_scripts' );
