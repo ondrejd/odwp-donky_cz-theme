@@ -15,12 +15,11 @@ if ( ! class_exists( 'DonkyCz_Nav_Menu_Walker' ) ) :
 /**
  * Walker for primary navigation menu.
  *
+ * @see Walker_Nav_Menu
  * @since 1.0
- * @author Ondřej Doněk <ondrejd@gmail.com>
+ * @author Ondřej Doněk, <ondrejd@gmail.com>
  * @package odwp-donkycz-theme
  * @subpackage odwp-donkycz-theme/includes
- * @see Walker_Nav_Menu
- * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/nav-menu-template.php
  */
 class DonkyCz_Nav_Menu_Walker extends Walker_Nav_Menu {
 
