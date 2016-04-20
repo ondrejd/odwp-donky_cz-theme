@@ -113,3 +113,30 @@ function odwpdct_scripts() {
 
 endif; // odwpdct_scripts
 add_action( 'wp_enqueue_scripts', 'odwpdct_scripts' );
+
+
+
+if ( ! function_exists( 'odwpdct_render_page_content' ) ) :
+
+/**
+ * Renders page content.
+ *
+ * All pages are rendered at once and user see their content via JavaScript.
+ * See file `footer.php` for more details.
+ *
+ * @since 1.0
+ * @param WP_Post $page
+ */
+function odwpdct_render_page_content( $page ) {
+	$slug = str_replace( '-', '_', $page->post_name );
+?>
+<div class="footer-page-cont footer-page-<?php echo $slug; ?>">
+	<div class="inner-page-cont">
+		<h3><?php the_title(); ?></h3>
+		<?php the_content(); ?>
+	</div>
+</div>
+<?php
+}
+
+endif; // odwpdct_render_page_content
