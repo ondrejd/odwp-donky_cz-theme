@@ -11,47 +11,74 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div id="main-content" class="main-content">
+	<div class="price-labels" role="contentinfo">
+		<div class="price-label left-label">
+			<div class="label-header"><h2></h2></div>
+			<div class="label-content">
+				<p class="details"></p>
+				<p class="description"></p>
+			</div>
+		</div>
+		<div class="price-label right-label">
+			<div class="label-header"><h2></h2></div>
+			<div class="label-content">
+				<p class="details"></p>
+				<p class="description"></p>
+			</div>
+		</div>
+	</div><!-- .price-labels -->
+	<div class="toys-navigation" role="navigation">
+		<table class="nav-links">
+			<tr>
+				<td class="left">
+					<a href="#" title="<?php echo esc_attr( __( 'Předchozí hračka', 'odwp-donkycz-theme' ) ); ?>">
+						<span class="meta-nav meta-nav-prev"></span>
+					</a>
+				</td>
+				<td class="middle"></td>
+				<td class="right">
+					<a href="#" title="<?php echo esc_attr( __( 'Další hračka', 'odwp-donkycz-theme' ) ); ?>">
+						<span class="meta-nav meta-nav-next"></span>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div><!-- .toys-navigation -->
+	<div class="toys-panel">
+	<?php if ( have_posts() ) : $i = 0; ?>
+		<?php while ( have_posts() ) : 
+			the_post();
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
-
-			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			// End the loop.
-			endwhile;
-
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-			) );
-
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+			$slug = str_replace( '-', '_', $post->post_name );
+			$description = get_post_meta( $post->ID, 'toy_description', true );
+			$material = get_post_meta( $post->ID, 'toy_material', true );
+			$dimensions = get_post_meta( $post->ID, 'toy_dimensions', true );
 		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+		<div class="toys-pair toys-pair-<?php echo $i; ?>" data-pairIndex="<?php echo $i; ?>">
+			<div class="rack">
+				<div class="part left"></div>
+				<div class="part center"></div>
+				<div class="part right"></div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel panel-left">
+				<img src="<?php echo DonkyCz_Custom_Post_Type_Toy::get_toy_image( $post->ID ); ?>" 
+					alt="<?php the_title(); ?>" 
+					class="<?php echo $slug; ?>" 
+					data-toyId="<?php the_ID(); ?>" 
+					data-title="<?php the_title(); ?>" 
+					data-details="<?php sprintf( __( 'Vel.: %s[BR]Materiál: %s', 'odwp-donkycz-theme' ), $dimensions, $material );?>" 
+					data-description="<?php echo $description; ?>"/>
+			</div>
+			<div class="panel panel-right">
+				<!-- XXX Here goes right -->
+			</div>
+		</div>
+		<?php $i++; endwhile;?>
+	<?php endif; ?>
+	</div><!-- .toys-panel -->
+</div><!-- .main-content -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
