@@ -46,7 +46,7 @@ get_header(); ?>
 		</table>
 	</div><!-- .toys-navigation -->
 	<div class="toys-panel">
-	<?php if ( have_posts() ) : $i = 0; ?>
+	<?php if ( have_posts() ) : $i = 0; $ii = 0; ?>
 		<?php while ( have_posts() ) : 
 			the_post();
 
@@ -54,8 +54,10 @@ get_header(); ?>
 			$description = get_post_meta( $post->ID, 'toy_description', true );
 			$material = get_post_meta( $post->ID, 'toy_material', true );
 			$dimensions = get_post_meta( $post->ID, 'toy_dimensions', true );
+
+			if ( ( $i + 1 ) % 2 ) :
 		?>
-		<div class="toys-pair toys-pair-<?php echo $i; ?>" data-pairIndex="<?php echo $i; ?>">
+		<div class="toys-pair toys-pair-<?php echo $ii; ?>" data-pairIndex="<?php echo $ii; ?>">
 			<div class="rack">
 				<div class="part left"></div>
 				<div class="part center"></div>
@@ -64,18 +66,29 @@ get_header(); ?>
 			</div>
 			<div class="panel panel-left">
 				<img src="<?php echo DonkyCz_Custom_Post_Type_Toy::get_toy_image( $post->ID ); ?>" 
-					alt="<?php the_title(); ?>" 
-					class="<?php echo $slug; ?>" 
-					data-toyId="<?php the_ID(); ?>" 
-					data-title="<?php the_title(); ?>" 
-					data-details="<?php sprintf( __( 'Vel.: %s[BR]Materiál: %s', 'odwp-donkycz-theme' ), $dimensions, $material );?>" 
-					data-description="<?php echo $description; ?>"/>
+				     alt="<?php the_title(); ?>" 
+				     class="<?php echo $slug; ?>" 
+				     data-toyId="<?php the_ID(); ?>" 
+				     data-title="<?php the_title(); ?>" 
+				     data-details="<?php sprintf( __( 'Vel.: %s[BR]Materiál: %s', 'odwp-donkycz-theme' ), $dimensions, $material );?>" 
+				     data-description="<?php echo $description; ?>"/>
 			</div>
+		<?php else : $ii++; ?>
 			<div class="panel panel-right">
-				<!-- XXX Here goes right -->
+				<img src="<?php echo DonkyCz_Custom_Post_Type_Toy::get_toy_image( $post->ID ); ?>" 
+				     alt="<?php the_title(); ?>" 
+				     class="<?php echo $slug; ?>" 
+				     data-toyId="<?php the_ID(); ?>" 
+				     data-title="<?php the_title(); ?>" 
+				     data-details="<?php sprintf( __( 'Vel.: %s[BR]Materiál: %s', 'odwp-donkycz-theme' ), $dimensions, $material );?>" 
+				     data-description="<?php echo $description; ?>"/>
 			</div>
-		</div>
-		<?php $i++; endwhile;?>
+		</div><!-- .toys-pair -->
+		<?php 
+			endif;
+			$i++; 
+			endwhile;
+		?>
 	<?php endif; ?>
 	</div><!-- .toys-panel -->
 </div><!-- .main-content -->
